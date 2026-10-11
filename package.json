@@ -1,0 +1,54 @@
+{
+ "name": "next-big-idea",
+ "version": "0.4.0",
+ "main": "main.js",
+ "description": "Find the Next Big Idea",
+ "devDependencies": {
+  "@electron/packager": "^20.3.0",
+  "electron": "^44.7.0",
+  "electron-builder": "^25.1.8",
+  "resedit": "^3.1.0"
+ },
+ "author": "BOIMA MA",
+ "license": "MIT",
+ "scripts": {
+  "start": "electron .",
+  "dist": "electron-builder --win --x64",
+  "test": "electron --no-sandbox test-main.js"
+ },
+ "build": {
+  "appId": "com.boimama.nextbigidea",
+  "productName": "Find the Next Big Idea",
+  "files": [
+   "main.js",
+   "preload.js",
+   "stt-worker.js",
+   "app.html",
+   "icon.png",
+   "icon.ico",
+   "fonts/*",
+   "node_modules/**/*"
+  ],
+  "win": {
+   "target": "nsis",
+   "icon": "icon.ico"
+  },
+  "nsis": {
+   "oneClick": false,
+   "allowToChangeInstallationDirectory": true,
+   "perMachine": false,
+   "createDesktopShortcut": true
+  },
+  "artifactName": "NextBigIdea-Setup-${version}.exe",
+  "asar": false,
+  "extraResources": [
+   {
+    "from": "models",
+    "to": "models"
+   }
+  ]
+ },
+ "dependencies": {
+  "sherpa-onnx-node": "^1.13.8"
+ }
+}

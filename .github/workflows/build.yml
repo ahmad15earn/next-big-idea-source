@@ -1,0 +1,39 @@
+name: Test and build Windows installer
+on:
+  push: {branches: [main], tags: ['v*']}
+  pull_request:
+  workflow_dispatch:
+permissions: {contents: write}
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - run: npm install
+      - run: sudo apt-get update && sudo apt-get install -y xvfb
+      - run: xvfb-run -a npx electron --no-sandbox test-main.js
+  win:
+    needs: test
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - run: npm install
+      - name: Download speech model (open Whisper base, offline engine)
+        shell: bash
+        run: |
+          curl -L -o base.tar.bz2 https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-base.tar.bz2
+          tar -xjf base.tar.bz2
+          mkdir -p models/whisper-base
+          cp sherpa-onnx-whisper-base/base-encoder.int8.onnx sherpa-onnx-whisper-base/base-decoder.int8.onnx sherpa-onnx-whisper-base/base-tokens.txt models/whisper-base/
+          curl -L -o bn.tar.bz2 https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-bn-vosk-2026-02-09.tar.bz2
+          tar -xjf bn.tar.bz2
+          mkdir -p models/bangla-vosk
+          cp sherpa-onnx-streaming-zipformer-bn-vosk-2026-02-09/encoder.onnx sherpa-onnx-streaming-zipformer-bn-vosk-2026-02-09/decoder.onnx sherpa-onnx-streaming-zipformer-bn-vosk-2026-02-09/joiner.onnx sherpa-onnx-streaming-zipformer-bn-vosk-2026-02-09/tokens.txt models/bangla-vosk/
+      - run: npm run dist
+      - uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with: {files: dist/*.exe}

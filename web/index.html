@@ -1,0 +1,96 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href="favicon.svg" type="image/svg+xml"><meta name=description content="Write your thoughts in 10 minutes, in any language. A quiet, distraction-free idea notebook for students who will build tomorrow. Free for Windows 11, or try it in your browser.">
+<meta name=theme-color content="#FFFCF7"><link rel=icon href="favicon.svg" type="image/svg+xml"><link rel=apple-touch-icon href="icon.png">
+<meta property=og:title content="Find the Next Big Idea"><meta property=og:description content="Write your thoughts in 10 minutes. Any language. Nothing else."><meta property=og:image content="og.png"><meta property=og:type content=website><meta property=og:image content="og.png"><meta name=twitter:card content=summary_large_image><meta name=twitter:card content=summary_large_image><title>Find the Next Big Idea</title>
+<style>
+:root{--bg:#FFFCF7;--ink:#141414;--ac:#240F00;--soft:rgba(36,15,0,.14);--ease:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.6 "Segoe UI Variable Text","Segoe UI","Nirmala UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.w{max-width:980px;margin:0 auto;padding:0 24px}
+.serif{font-family:Georgia,"Nirmala UI","Times New Roman",serif}
+nav{position:fixed;top:0;left:0;right:0;z-index:9;display:flex;justify-content:space-between;align-items:center;padding:14px 28px;background:rgba(255,252,247,.72);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--soft);font-size:.9rem;color:var(--ac)}
+nav b{font-weight:600;letter-spacing:-.01em}
+.btn{display:inline-block;background:var(--ac);color:var(--bg);padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:500;transition:transform .1s ease-out,opacity .2s}
+.btn.ghost{background:none;color:var(--ac);border:1px solid var(--soft);transition:border-color .2s,transform .1s}.btn.ghost:hover{opacity:1;border-color:var(--ac)}.brand{display:flex;align-items:center;gap:10px}.brand .lg{height:22px;width:auto}.hero .lg{height:76px;width:auto;color:var(--ac);display:block;margin:0 auto 28px}.dt{animation:dt 1s var(--ease) .2s both}@keyframes dt{from{transform:translate(-30px,-60px);opacity:0}}
+.btn:hover{opacity:.9}.btn:active{transform:scale(.97)}nav .btn{padding:8px 18px;font-size:.85rem}
+.hero{padding:22vh 0 8vh;text-align:center}
+h1{font:600 clamp(2.5rem,7.4vw,5rem)/1.03 Georgia,serif;letter-spacing:-.03em;color:var(--ac);margin:0 0 26px}
+.lang{height:2.2em;font-size:clamp(1.3rem,3.4vw,1.9rem);color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:Georgia,"Nirmala UI","Segoe UI",serif}
+.lang #lg{display:inline-block;white-space:pre}
+.sub{opacity:.65;font-size:1.1rem;margin:6px 0 0}
+small{display:block;margin-top:14px;font-size:.8rem;opacity:.55;letter-spacing:.02em}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.f{animation:f .55s var(--ease) both}@keyframes f{from{opacity:0;transform:translateY(3px)}}
+.o{transition:opacity .45s}.o.out{opacity:0}
+/* window mock */
+.win{position:relative;margin:0 auto;border:1px solid var(--soft);border-radius:8px;background:var(--bg);box-shadow:0 40px 80px -40px rgba(36,15,0,.35);overflow:hidden;aspect-ratio:16/10;max-width:860px}
+.bar{position:absolute;top:0;left:0;height:2px;width:100%;background:var(--ac);transform-origin:left;transform:scaleX(.02);transition:transform 9s linear}
+.chrome{position:absolute;left:0;right:0;display:flex;justify-content:space-between;padding:14px 18px;font-size:12px;color:var(--ac);transition:opacity .5s var(--ease)}
+.chrome.top{top:0}.chrome.bot{bottom:0}.win.typing .chrome{opacity:0}
+.chrome i{font-style:normal;opacity:.5;letter-spacing:.04em}
+.chrome u{text-decoration:none;border:1px solid var(--soft);border-radius:6px;padding:4px 10px}
+.doc{position:absolute;inset:0;padding:16% 14%;font:clamp(.95rem,2.1vw,1.4rem)/1.75 Georgia,serif;color:var(--ink)}
+.doc:empty:before,.doc.e:before{content:"Write your idea.";opacity:.3}
+.cap{text-align:center;font-size:.85rem;opacity:.55;margin-top:16px}
+/* talk card */
+.talk{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:16vh 0}
+.talk h2,.sec h2{font:600 clamp(1.9rem,4.4vw,3rem)/1.1 Georgia,serif;letter-spacing:-.025em;color:var(--ac);margin:0 0 16px}
+.talk p,.sec p.l{opacity:.7;margin:0}
+.card{border:1px solid var(--soft);border-radius:8px;background:var(--bg);padding:34px;box-shadow:0 30px 60px -36px rgba(36,15,0,.3)}
+.rec{display:flex;align-items:center;gap:12px;font-size:.9rem;color:var(--ac);margin-bottom:26px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--ac);animation:d 2.4s ease-in-out infinite}@keyframes d{50%{opacity:.25}}
+.wave{display:flex;align-items:center;gap:4px;height:70px}
+.wave i{flex:1;background:var(--ac);border-radius:2px;height:100%;transform:scaleY(.12);animation:w 1.6s ease-in-out infinite;opacity:.8}
+@keyframes w{50%{transform:scaleY(var(--h))}}
+.badge{display:inline-block;margin-top:22px;font-size:.78rem;border:1px solid var(--soft);border-radius:6px;padding:4px 10px;color:var(--ac)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;padding:6vh 0 16vh}
+.steps b{font:600 2.6rem/1 Georgia,serif;color:var(--ac);opacity:.25}
+.steps h3{margin:10px 0 6px;font-size:1.05rem;color:var(--ac)}.steps p{margin:0;font-size:.95rem;opacity:.7}
+.sec{text-align:center;padding:4vh 0 8vh}.sec p.l{max-width:36ch;margin:0 auto}
+.cta{text-align:center;padding:10vh 0 14vh;border-top:1px solid var(--soft)}
+footer{text-align:center;padding-bottom:6vh;font-size:.85rem;opacity:.5}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}.rv.in{opacity:1;transform:none}
+.hr>*{animation:f .9s var(--ease) both}.hr>*:nth-child(2){animation-delay:.1s}.hr>*:nth-child(3){animation-delay:.2s}.hr>*:nth-child(4){animation-delay:.3s}
+@media(max-width:720px){.talk{grid-template-columns:1fr;gap:32px}.steps{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.dt{animation:none}.rv{transition:opacity .3s;transform:none}.hr>*,.f{animation:none}.wave i{animation:none;transform:scaleY(.5)}.dot{animation:none}.bar{transition:none}}
+</style>
+<nav><span class=brand><svg class=lg viewBox="540 375 850 1180" xmlns="http://www.w3.org/2000/svg" aria-label="i"><polygon class=dt points="1106,387 1378,537 1252,766 980,617" fill="currentColor"/><polygon points="963,648 1235,797 825,1543 553,1394" fill="currentColor"/></svg><b>Find the Next Big Idea</b></span><span style="display:flex;gap:10px;align-items:center"><button id=lt style="background:none;border:1px solid var(--soft);border-radius:6px;padding:8px 14px;color:var(--ac);cursor:pointer;font:inherit;font-size:.85rem">বাংলা</button><a class="btn ghost" id=trynav data-k=tryn href="app.html">Try in browser</a></span></nav>
+<div class=w>
+<section class="hero hr"><svg class=lg viewBox="540 375 850 1180" xmlns="http://www.w3.org/2000/svg" aria-label="i"><polygon class=dt points="1106,387 1378,537 1252,766 980,617" fill="currentColor"/><polygon points="963,648 1235,797 825,1543 553,1394" fill="currentColor"/></svg><h1 data-k=h1>Your next big idea is already in your head.</h1>
+<div class=lang><span id=lg class=o aria-hidden=true></span><span class=sr>Write your thoughts, in any language.</span></div>
+<p class=sub data-k=sub>Ten minutes. Any language. Nothing else.</p>
+<div style="margin-top:34px"><a class=btn id=dl href="#download" rel=noopener>Download for Windows 11</a><small id=dlnote>Unzip, then open NextBigIdea.exe · Free · Works offline</small></div></section>
+<div class=rv><div class=win id=win><div class=bar id=bar></div><div class="chrome top"><u>☰</u><i>09:41</i><u>⚙</u></div><div class="doc e" id=doc></div><div class="chrome bot"><u>Idea Talk</u><u>New idea</u></div></div>
+<p class=cap data-k=cap>The controls fade away the moment you start writing.</p></div>
+<section class=talk><div class=rv><h2 data-k=h2a>Don't type it. Say it.</h2><p data-k=talkp>Tap Idea Talk and speak. Your voice is saved, and the Windows app turns it into text on your own computer, offline.</p><span class=badge data-k=badge>Windows app works offline</span></div>
+<div class="card rv" style="--d:.12s"><div class=rec><span class=dot></span>Idea Talk · recording</div><div class=wave id=wave></div></div></section>
+<section class=sec><div class=rv><h2 data-k=h2b>Made for students who will build tomorrow.</h2><p class=l data-k=pl>Great founders start with a thought they refused to lose. Catch yours before it fades.</p></div></section>
+<section class=steps><div class=rv><b>1</b><h3 data-k=s1h>Open a blank page</h3><p data-k=s1p>No folders. No dashboard. Just room to think.</p></div><div class=rv style="--d:.1s"><b>2</b><h3 data-k=s2h>Write or speak for 10 minutes</h3><p data-k=s2p>A quiet line at the top shows your time.</p></div><div class=rv style="--d:.2s"><b>3</b><h3 data-k=s3h>Keep it</h3><p data-k=s3p>Saved automatically on your computer. Nothing is lost.</p></div></section>
+<section class="sec rv"><h2 data-k=privh>Private by design.</h2><p class=l data-k=privp>Your ideas stay on your own device. The Windows app, including voice-to-text, runs fully offline and sends nothing anywhere. The browser version saves your voice, but turning it into text is only in the Windows app.</p></section>
+<section class="cta rv"><h2 data-k=cta class=serif style="font-size:clamp(1.9rem,4.4vw,3rem);letter-spacing:-.025em;color:var(--ac);margin:0 0 22px;font-weight:600">Write your thoughts. Start now.</h2><a href="#" style="color:var(--ac);text-decoration:none;font-size:.95rem">Back to top ↑</a></section>
+<footer><span style="display:inline-flex;align-items:center;gap:8px;color:var(--ac)"><svg style="height:16px;width:auto" viewBox="540 375 850 1180" xmlns="http://www.w3.org/2000/svg" aria-hidden=true><polygon points="1106,387 1378,537 1252,766 980,617" fill="currentColor"/><polygon points="963,648 1235,797 825,1543 553,1394" fill="currentColor"/></svg>Find the Next Big Idea</span></footer></div>
+<script>
+const DOWNLOAD_URL="NextBigIdea-Windows.zip"; // set to your GitHub Release link after publishing
+const dl=document.getElementById("dl");if(!DOWNLOAD_URL)document.getElementById("trynav").style.display="none";dl.href=DOWNLOAD_URL;dl.setAttribute("download","");
+if(!/Windows/i.test(navigator.userAgent)){document.getElementById("dlnote").textContent="The download is for Windows 11. On this device, use Try in browser.";dl.style.opacity=".55"}
+const R=matchMedia('(prefers-reduced-motion:reduce)').matches,sl=ms=>new Promise(r=>setTimeout(r,ms));
+const L=[["Write your thoughts.","en"],["তোমার ভাবনাগুলো লেখো।","bn"],["اكتب أفكارك.","ar","rtl"],["अपने विचार लिखो।","hi"],["Escribe tus ideas.","es"],["写下你的想法。","zh"],["Écris tes pensées.","fr"],["Düşüncelerini yaz.","tr"],["اپنے خیالات لکھو۔","ur","rtl"]];
+const cur=l=>/^(ar|ur|fa)/.test(l||'');
+function parts(t,l){const g=new Intl.Segmenter(l||'en',{granularity:cur(l)?'word':'grapheme'});return [...g.segment(t)].map(s=>s.segment)}
+async function type(el,t,ms,l){el.textContent='';for(const c of parts(t,l)){const s=document.createElement('span');s.className='f';s.textContent=c;el.appendChild(s);if(ms)await sl(ms)}}
+async function langs(){const e=document.getElementById('lg');if(R){e.classList.remove('o');e.textContent=L[0][0];return}
+ for(let i=0;;i=(i+1)%L.length){while(document.hidden)await sl(700);const[t,l,d]=L[i];e.lang=l;e.dir=d||'ltr';e.classList.remove('out');await type(e,t,cur(l)?160:55,l);await sl(2000);e.classList.add('out');await sl(500)}}
+const demo="A school app where students save an idea just by speaking for ten minutes.";
+async function app(){const w=document.getElementById('win'),d=document.getElementById('doc'),b=document.getElementById('bar');
+ if(R){d.classList.remove('e');d.textContent=demo;return}
+ for(;;){while(document.hidden)await sl(700);d.className='doc e';d.textContent='';w.classList.remove('typing');b.style.transition='none';b.style.transform='scaleX(.02)';await sl(1400);
+  d.classList.remove('e');w.classList.add('typing');b.style.transition='transform 9s linear';b.style.transform='scaleX(.5)';
+  await type(d,demo,70);await sl(2600);w.classList.remove('typing');await sl(2400)}}
+const wv=document.getElementById('wave');for(let i=0;i<34;i++){const e=document.createElement('i');e.style.setProperty('--h',(.2+Math.random()*.8).toFixed(2));e.style.animationDelay=(-Math.random()*1.6).toFixed(2)+'s';wv.appendChild(e)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+const BN={h1:'আগামীর বড় আইডিয়া তোমার মাথাতেই আছে।',sub:'দশ মিনিট। যেকোনো ভাষা। আর কিছু না।',h2a:'টাইপ নয়, বলে ফেলো।',talkp:'Idea Talk চেপে বলো। তোমার কণ্ঠ সেভ হয়, আর Windows অ্যাপ সেটা তোমার কম্পিউটারেই, অফলাইনে লেখা করে দেয়।',badge:'Windows অ্যাপ অফলাইনে চলে',h2b:'যারা আগামীর নির্মাতা হবে, সেই শিক্ষার্থীদের জন্য।',pl:'দারুণ উদ্যোক্তারা শুরু করে এমন এক ভাবনা দিয়ে যা তারা হারাতে দেননি। তোমারটা মিলিয়ে যাওয়ার আগে ধরে ফেলো।',s1h:'ফাঁকা পাতা খোলো',s1p:'কোনো ফোল্ডার নেই, ড্যাশবোর্ড নেই। শুধু ভাবার জায়গা।',s2h:'১০ মিনিট লেখো বা বলো',s2p:'উপরের একটা শান্ত রেখা সময় দেখায়।',s3h:'রেখে দাও',s3p:'নিজে নিজে তোমার কম্পিউটারে সেভ হয়। কিছু হারায় না।',cap:'লেখা শুরু করলেই কন্ট্রোলগুলো মিলিয়ে যায়।',privh:'গোপনীয়তা আগে।',privp:'তোমার আইডিয়া থাকে তোমার নিজের ডিভাইসেই। কথা থেকে লেখা সহ Windows অ্যাপ পুরোপুরি অফলাইনে চলে, কিছু বাইরে পাঠায় না। ব্রাউজার সংস্করণে কণ্ঠ সেভ হয়, কিন্তু লেখায় রূপান্তর শুধু Windows অ্যাপে।',cta:'তোমার ভাবনা লেখো। এখনই শুরু করো।',tryn:'ব্রাউজারে চালাও'};
+const EN={};document.querySelectorAll('[data-k]').forEach(e=>EN[e.dataset.k]=e.innerHTML);let bn=false;
+function dlt(){if(DOWNLOAD_URL){dl.textContent=bn?'Windows 11-এর জন্য ডাউনলোড':'Download for Windows 11';document.getElementById('dlnote').textContent=bn?'জিপ খুলে NextBigIdea.exe চালাও · বিনামূল্যে · অফলাইনে চলে':'Unzip, then open NextBigIdea.exe · Free · Works offline'}else{dl.textContent=bn?'ব্রাউজারে চালিয়ে দেখো':'Try it in your browser';document.getElementById('dlnote').textContent=bn?'Windows ডাউনলোড শিগগিরই আসছে · বিনামূল্যে':'Windows download coming soon. Free'}}
+document.getElementById('lt').onclick=function(){bn=!bn;document.querySelectorAll('[data-k]').forEach(e=>e.innerHTML=bn?BN[e.dataset.k]:EN[e.dataset.k]);this.textContent=bn?'English':'বাংলা';document.documentElement.lang=bn?'bn':'en';dlt()};
+langs();app();
+</script>
