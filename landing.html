@@ -69,7 +69,7 @@ footer{text-align:center;padding-bottom:6vh;font-size:.85rem;opacity:.5}
 <section class="cta rv"><h2 data-k=cta class=serif style="font-size:clamp(1.9rem,4.4vw,3rem);letter-spacing:-.025em;color:var(--ac);margin:0 0 22px;font-weight:600">Write your thoughts. Start now.</h2><a href="#" style="color:var(--ac);text-decoration:none;font-size:.95rem">Back to top ↑</a></section>
 <footer><span style="display:inline-flex;align-items:center;gap:8px;color:var(--ac)"><svg style="height:16px;width:auto" viewBox="540 375 850 1180" xmlns="http://www.w3.org/2000/svg" aria-hidden=true><polygon points="1106,387 1378,537 1252,766 980,617" fill="currentColor"/><polygon points="963,648 1235,797 825,1543 553,1394" fill="currentColor"/></svg>Find the Next Big Idea</span></footer></div>
 <script>
-const DOWNLOAD_URL="NextBigIdea-Windows.zip"; // set to your GitHub Release link after publishing
+const DOWNLOAD_URL="https://github.com/ahmad15earn/next-big-idea-source/releases/download/v0.2.1/NextBigIdea.exe";// set to your GitHub Release link after publishing
 const dl=document.getElementById("dl");if(!DOWNLOAD_URL)document.getElementById("trynav").style.display="none";dl.href=DOWNLOAD_URL;dl.setAttribute("download","");
 if(!/Windows/i.test(navigator.userAgent)){document.getElementById("dlnote").textContent="The download is for Windows 11. On this device, use Try in browser.";dl.style.opacity=".55"}
 const R=matchMedia('(prefers-reduced-motion:reduce)').matches,sl=ms=>new Promise(r=>setTimeout(r,ms));
